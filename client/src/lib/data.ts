@@ -1,4 +1,4 @@
-import logo from '@assets/generated_images/modern_abstract_logo_for_ags_staffing_agency.png';
+import logo from '@assets/ags_logo_1765437000270.png';
 import imgIT from '@assets/generated_images/it_professionals_collaborating_in_modern_office.png';
 import imgHealth from '@assets/generated_images/healthcare_professionals_in_hospital_setting.png';
 import imgFinance from '@assets/generated_images/finance_professionals_in_meeting.png';

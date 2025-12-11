@@ -11,8 +11,7 @@ export default function Footer() {
           {/* About Column */}
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <img src={companyInfo.logo} alt="AGS Logo" className="h-10 w-10 bg-white rounded-full p-1" />
-              <span className="font-heading font-bold text-xl uppercase tracking-wider">AGS Staffing</span>
+              <img src={companyInfo.logo} alt="AGS Logo" className="h-16 w-auto bg-white/10 rounded-lg p-2 backdrop-blur-sm" />
             </div>
             <p className="text-primary-foreground/80 leading-relaxed mb-6">
               Connecting exceptional talent with world-class organizations. We specialize in building the teams that build the future.

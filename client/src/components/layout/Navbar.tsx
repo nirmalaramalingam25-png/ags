@@ -41,16 +41,8 @@ export default function Navbar() {
             <motion.img 
               src={companyInfo.logo} 
               alt="Logo" 
-              className={`transition-all duration-300 ${scrolled ? "h-10 w-10" : "h-14 w-14"}`}
+              className={`transition-all duration-300 object-contain ${scrolled ? "h-12" : "h-24"}`}
             />
-            <div className="flex flex-col">
-              <span className={`font-heading font-bold uppercase tracking-wider transition-colors duration-300 ${scrolled ? "text-primary text-xl" : "text-white text-2xl drop-shadow-md"}`}>
-                AGS Staffing
-              </span>
-              {!scrolled && (
-                <span className="text-white/90 text-xs font-light tracking-widest uppercase">Global Talent Solutions</span>
-              )}
-            </div>
         </Link>
 
         {/* Desktop Nav */}
