@@ -14,7 +14,7 @@ export default function Footer() {
               <img src={companyInfo.logo} alt="AGS Logo" className="h-16 w-auto bg-white/10 rounded-lg p-2 backdrop-blur-sm" />
             </div>
             <p className="text-primary-foreground/80 leading-relaxed mb-6">
-              Connecting exceptional talent with world-class organizations. We specialize in building the teams that build the future.
+              Where skilled IT professionals and growing businesses come together. We build the IT teams that move businesses forward.
             </p>
             <div className="flex gap-4">
               <a href={companyInfo.socials.facebook} className="p-2 bg-white/10 rounded-full hover:bg-secondary hover:text-secondary-foreground transition-colors"><Facebook size={18} /></a>

@@ -17,7 +17,7 @@ export default function SpecializationDetail() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold mb-4">Specialization Not Found</h1>
-        <Link href="/specializations" className={buttonVariants()}>
+        <Link href="/specializations" className={buttonVariants({})}>
           Back to All Specializations
         </Link>
       </div>

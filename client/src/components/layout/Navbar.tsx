@@ -3,7 +3,6 @@ import { Link, useLocation } from "wouter";
 import { companyInfo } from "@/lib/data";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -45,71 +44,68 @@ export default function Navbar() {
             />
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.path} 
-              href={link.path}
-              className={`px-4 py-2 rounded-full font-medium transition-all duration-300 relative group
-                  ${location === link.path 
-                    ? "text-secondary" 
-                    : scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"
-                  }`}
-            >
-                {link.name}
-                {location === link.path && (
-                  <motion.div 
-                    layoutId="underline" 
-                    className="absolute bottom-1 left-4 right-4 h-0.5 bg-secondary" 
-                  />
-                )}
-            </Link>
-          ))}
-          <Link href="/admin" className={`ml-4 px-4 py-1.5 rounded border text-xs font-bold transition-all
-               ${scrolled 
-                 ? "border-primary text-primary hover:bg-primary hover:text-white" 
-                 : "border-white/50 text-white hover:bg-white hover:text-primary"
-               }`}>
-              Admin
-          </Link>
-        </nav>
-
-        {/* Mobile Toggle */}
+        {/* Burger Menu Toggle */}
         <button 
-          className="lg:hidden p-2 text-primary"
+          className="p-2 text-primary"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? (
-            <X className={scrolled ? "text-foreground" : "text-white"} />
-          ) : (
-            <Menu className={scrolled ? "text-foreground" : "text-white"} />
-          )}
+          <Menu className={scrolled ? "text-foreground" : "text-white"} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Right side drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t"
-          >
-            <nav className="flex flex-col p-4 gap-2">
-              {navLinks.map((link) => (
+          <>
+            {/* Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 z-40"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 20, stiffness: 300 }}
+              className="fixed right-0 top-0 h-full w-full sm:w-96 bg-black z-50 shadow-lg flex flex-col p-6"
+            >
+              <button 
+                className="ml-auto mb-8"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <X className="text-white" size={28} />
+              </button>
+              
+              <nav className="flex flex-col gap-6">
+                {navLinks.map((link) => (
+                  <Link 
+                    key={link.path} 
+                    href={link.path}
+                    className={`text-lg font-semibold transition-colors ${
+                      location === link.path 
+                        ? "text-secondary" 
+                        : "text-white hover:text-secondary"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
                 <Link 
-                  key={link.path} 
-                  href={link.path}
-                  className={`p-3 rounded-lg hover:bg-muted ${location === link.path ? "text-primary font-bold bg-muted/50" : "text-foreground"}`}
+                  href="/admin"
+                  className="text-lg font-semibold text-white hover:text-secondary transition-colors border border-white/20 rounded px-4 py-2 text-center mt-4"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                    {link.name}
+                  Admin
                 </Link>
-              ))}
-            </nav>
-          </motion.div>
+              </nav>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.header>
