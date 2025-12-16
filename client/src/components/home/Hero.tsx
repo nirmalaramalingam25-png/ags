@@ -7,24 +7,56 @@ import { useState, useEffect } from 'react';
 
 const lines = [
   {
-    text: "We don't just fill roles—we build IT teams that move businesses forward.",
-    className: "text-2xl md:text-4xl font-bold text-white leading-tight",
+    text: "YOUR NEXT OPPORTUNITY STARTS HERE.",
+    className: "text-3xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg",
+    style: {
+      fontFamily: "'Montserrat', sans-serif",
+      textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
+      background: "linear-gradient(45deg, #FFD700, #FFA500)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      backgroundClip: "text"
+    },
     isHeading: true
   },
   {
-    text: "Connecting forward-thinking companies with IT talent that delivers.",
-    className: "text-xl md:text-2xl text-white/90",
-    isHeading: false
+    text: "FAST HIRING. REAL OPPORTUNITY.",
+    className: "text-3xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg",
+    style: {
+      fontFamily: "'Roboto', sans-serif",
+      textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
+      background: "linear-gradient(45deg, #00FF7F, #32CD32)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      backgroundClip: "text"
+    },
+    isHeading: true
   },
   {
-    text: "Matching the right IT minds with the right missions across the U.S.",
-    className: "text-xl md:text-2xl text-white/90",
-    isHeading: false
+    text: "APPLY ONCE. GET MULTIPLE OPPORTUNITIES",
+    className: "text-3xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg",
+    style: {
+      fontFamily: "'Poppins', sans-serif",
+      textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
+      background: "linear-gradient(45deg, #FF69B4, #FF1493)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      backgroundClip: "text"
+    },
+    isHeading: true
   },
   {
-    text: "Where skilled IT professionals and growing businesses come together.",
-    className: "text-xl md:text-2xl text-secondary font-semibold",
-    isHeading: false
+    text: "HELPING JOB SEEKERS FIND BETTER OPPORTUNITIES, FASTER.",
+    className: "text-3xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg",
+    style: {
+      fontFamily: "'Dancing Script', cursive",
+      textShadow: "2px 2px 4px rgba(0,0,0,0.8)",
+      background: "linear-gradient(45deg, #87CEEB, #4169E1)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      backgroundClip: "text"
+    },
+    isHeading: true
   }
 ];
 
@@ -91,7 +123,7 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 1 }}
         className="absolute bottom-40 left-1/2 -translate-x-1/2 z-20"
       >
-        <Link href="/job-seekers" className={buttonVariants({ size: "lg", variant: "outline", className: "border-white text-primary hover:bg-white hover:text-primary text-lg px-8 py-6 h-auto font-bold rounded-full backdrop-blur-sm whitespace-nowrap" })}>
+        <Link href="/job-seekers" className={buttonVariants({ size: "lg", variant: "outline", className: "bg-yellow-400 text-black border-black hover:bg-yellow-500 hover:text-black text-lg px-8 py-6 h-auto font-bold rounded-full backdrop-blur-sm whitespace-nowrap" })}>
             Find Jobs <ArrowRight className="ml-2 w-5 h-5" />
         </Link>
       </motion.div>

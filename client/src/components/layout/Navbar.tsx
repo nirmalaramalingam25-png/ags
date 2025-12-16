@@ -24,6 +24,7 @@ export default function Navbar() {
     { name: "Testimonials", path: "/testimonials" },
     { name: "Job Seekers", path: "/job-seekers" },
     { name: "Contact Us", path: "/contact" },
+    { name: "Admin", path: "/admin" },
   ];
 
   return (
@@ -72,7 +73,15 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 20, stiffness: 300 }}
-              className="fixed right-0 top-0 h-full w-full sm:w-96 bg-black z-50 shadow-lg flex flex-col p-6"
+             // className="fixed right-0 top-0 h-full w-full sm:w-96 bg-black z-50 shadow-lg flex flex-col p-6"
+           className="fixed right-0 top-0 h-full w-full sm:w-96 bg-black z-50 shadow-lg flex flex-col p-6"
+  style={{
+    fontFamily: "'Dancing Script', cursive",
+    fontSize: "58px",
+    fontWeight: 600, // Dancing Script supports real bold
+    lineHeight: "1.2",
+    textShadow: "2px 2px 6px rgba(0,0,0,0.6)",
+  }}
             >
               <button 
                 className="ml-auto mb-8"
@@ -83,12 +92,12 @@ export default function Navbar() {
               
               <nav className="flex flex-col gap-6">
                 {navLinks.map((link) => (
-                  <Link 
-                    key={link.path} 
+                  <Link
+                    key={link.path}
                     href={link.path}
-                    className={`text-lg font-semibold transition-colors ${
-                      location === link.path 
-                        ? "text-secondary" 
+                    className={`text-3xl font-semibold transition-colors ${
+                      location === link.path
+                        ? "text-secondary"
                         : "text-white hover:text-secondary"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
@@ -96,13 +105,6 @@ export default function Navbar() {
                     {link.name}
                   </Link>
                 ))}
-                <Link 
-                  href="/admin"
-                  className="text-lg font-semibold text-white hover:text-secondary transition-colors border border-white/20 rounded px-4 py-2 text-center mt-4"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Admin
-                </Link>
               </nav>
             </motion.div>
           </>

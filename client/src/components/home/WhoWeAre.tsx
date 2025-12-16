@@ -46,19 +46,19 @@ export default function WhoWeAre() {
           >
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                src="https://plus.unsplash.com/premium_photo-1661414415246-3e502e2fb241?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjV8fG9mZmljZSUyMG1lZXRpbmd8ZW58MHx8MHx8fDA%3D" 
                 alt="Team Meeting" 
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Floating Card */}
-            <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-xl shadow-xl max-w-xs hidden md:block">
+           {/* <div className="absolute -bottom-10 -left-10 bg-white p-6 rounded-xl shadow-xl max-w-xs hidden md:block">
               <div className="flex items-center gap-4 mb-4">
                 <div className="bg-primary/10 p-3 rounded-full text-primary font-bold text-2xl">15+</div>
                 <div className="text-sm font-medium text-muted-foreground">Years of Excellence</div>
-              </div>
+              
               <p className="text-sm text-foreground">Delivering top-tier staffing solutions to Fortune 500 companies.</p>
-            </div>
+            
+            </div></div> Floating Card */}
           </motion.div>
         </div>
       </div>
