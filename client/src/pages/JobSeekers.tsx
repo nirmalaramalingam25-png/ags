@@ -8,13 +8,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Briefcase, Zap, Globe, Users } from "lucide-react";
+import FlipBook from "@/components/shared/FlipBook";
+import "@/flipbook.css";
 
 export default function JobSeekers() {
   const faqs = [
     {
-      q: "Is there a fee for job seekers?",
-      a: "No, our services are completely free for job seekers. We are paid by the employers to find great talent like you."
+      q: "What does AGS Staffing Agency do?",
+      a: "AGS Staffing Agency connects businesses with qualified, pre-vetted professionals across multiple US industries. We provide direct hire, contract, temporary, remote staffing, and high-volume recruitment solutions for companies of all sizes."
     },
     {
       q: "How long does the process take?",
@@ -27,6 +28,20 @@ export default function JobSeekers() {
     {
       q: "What industries do you cover?",
       a: "We specialize in IT, Healthcare, Finance, and Engineering, but we also handle roles in Administration, HR, and Sales."
+    },
+     {
+      q: "I’m a job seeker. How do I apply?",
+      a: "You can apply through our Job Seekers Page, submit your resume, or contact our recruiters directly. We will match you with suitable roles."
+    }
+    ,
+     {
+      q: "Does AGS support high-volume or bulk hiring?",
+      a: "Yes. We specialize in high-volume recruitment for call centers, warehouses, customer support teams, seasonal operations, and large-scale business expansions."
+    }
+    ,
+     {
+      q: "Can I request customized staffing solutions?",
+      a: "Definitely. Our team creates personalized hiring plans based on your company’s goals, timelines, and budget."
     }
   ];
 
@@ -36,8 +51,13 @@ export default function JobSeekers() {
       
       <section className="bg-primary text-primary-foreground pt-32 pb-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-heading font-bold mb-6">For Job Seekers</h1>
-          <p className="text-xl max-w-2xl mx-auto text-primary-foreground/80">
+          <h1 className="text-3xl font-heading font-bold mb-6">WHY CHOOSE AGS?</h1>
+          <p className="text-xl max-w-2xl mx-auto  text-yellow-400 text-primary-foreground/80 "style={{
+      fontFamily: "'DM Serif Display', serif",
+      fontWeight: 400,
+      letterSpacing: "0.05em",
+    }}
+          >
             Find your dream job with AGS Staffing. We connect you with top employers who value your skills.
           </p>
         </div>
@@ -46,38 +66,9 @@ export default function JobSeekers() {
       {/* Why Choose AGS */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-heading font-bold text-center text-primary mb-16">Why Choose AGS?</h2>
+           {/* <h2 className="text-3xl font-heading font-bold text-center text-primary mb-16">Why Choose AGS?</h2>*/}
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-muted hover:border-secondary transition-colors">
-              <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                <Briefcase size={32} />
-              </div>
-              <h3 className="font-bold text-xl mb-3">Exclusive Roles</h3>
-              <p className="text-muted-foreground">Access to unadvertised positions from top companies.</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-muted hover:border-secondary transition-colors">
-              <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                <Zap size={32} />
-              </div>
-              <h3 className="font-bold text-xl mb-3">Fast Placement</h3>
-              <p className="text-muted-foreground">We speed up the hiring process to get you working sooner.</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-muted hover:border-secondary transition-colors">
-              <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                <Users size={32} />
-              </div>
-              <h3 className="font-bold text-xl mb-3">Career Coaching</h3>
-              <p className="text-muted-foreground">Resume tips and interview prep from expert recruiters.</p>
-            </div>
-            <div className="text-center p-6 bg-white rounded-xl shadow-lg border border-muted hover:border-secondary transition-colors">
-              <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
-                <Globe size={32} />
-              </div>
-              <h3 className="font-bold text-xl mb-3">Global Network</h3>
-              <p className="text-muted-foreground">Opportunities across the country and around the world.</p>
-            </div>
-          </div>
+          <FlipBook />
 
           <div className="text-center bg-muted p-12 rounded-3xl">
              <h2 className="text-2xl font-bold mb-4">Ready to start?</h2>
