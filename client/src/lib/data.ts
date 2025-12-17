@@ -82,41 +82,35 @@ export const testimonials = {
   clients: [
     {
       id: 1,
-      name: "TechCorp Solutions",
       content: "AGS Staffing transformed our hiring process. Their attention to detail and understanding of our needs helped us find the perfect candidates quickly.",
-      role: "CTO"
+      rating: 5
     },
     {
       id: 2,
-      name: "Global Enterprises",
       content: "The team at AGS Staffing is professional and efficient. They provided us with a pool of qualified candidates that made our selection process much easier.",
-      role: "HR Director"
+      rating: 4
     },
     {
       id: 3,
-      name: "Innovate Inc.",
       content: "AGS Staffing transformed our hiring process. Their attention to detail and understanding of our needs helped us find the perfect candidates quickly.",
-      role: "CEO"
+      rating: 5
     },
     {
       id: 4,
-      name: "Business Dynamics",
       content: "Their recruitment process was smooth and super organized. We filled positions we struggled with for months. Communication was clear throughout the entire process. Highly recommend them to any US business.",
-      role: "Operations Manager"
+      rating: 5
     }
   ],
   candidates: [
     {
       id: 1,
-      name: "Alex Johnson",
       content: "They didn't just find me a job; they found me a career path that matched my ambitions perfectly.",
-      role: "Software Engineer"
+      rating: 5
     },
     {
       id: 2,
-      name: "Elena Rodriguez",
       content: "The support I received during the interview process was outstanding. Highly recommended!",
-      role: "Financial Analyst"
+      rating: 5
     }
   ]
 };

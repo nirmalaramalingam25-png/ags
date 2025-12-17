@@ -3,7 +3,7 @@ import Footer from "@/components/layout/Footer";
 import { testimonials } from "@/lib/data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Testimonials() {
@@ -43,14 +43,15 @@ export default function Testimonials() {
                         <p className="text-xl md:text-2xl text-foreground font-medium italic mb-8 leading-relaxed">
                           "{review.content}"
                         </p>
-                        <div className="flex items-center gap-4">
-                          <div className="h-12 w-12 rounded-full bg-secondary flex items-center justify-center font-bold text-secondary-foreground text-xl">
-                            {review.name[0]}
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-lg">{review.name}</h4>
-                            <p className="text-muted-foreground">{review.role}</p>
-                          </div>
+                        <div className="flex items-center gap-1">
+                          {Array.from({ length: 5 }, (_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-6 h-6 ${
+                                i < review.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                              }`}
+                            />
+                          ))}
                         </div>
                       </div>
                     </CardContent>
@@ -74,14 +75,15 @@ export default function Testimonials() {
                         <p className="text-xl md:text-2xl text-foreground font-medium italic mb-8 leading-relaxed">
                           "{review.content}"
                         </p>
-                        <div className="flex items-center gap-4">
-                          <div className="h-12 w-12 rounded-full bg-primary flex items-center justify-center font-bold text-primary-foreground text-xl">
-                            {review.name[0]}
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-lg">{review.name}</h4>
-                            <p className="text-muted-foreground">{review.role}</p>
-                          </div>
+                        <div className="flex items-center gap-1">
+                          {Array.from({ length: 5 }, (_, i) => (
+                            <Star
+                              key={i}
+                              className={`w-6 h-6 ${
+                                i < review.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                              }`}
+                            />
+                          ))}
                         </div>
                       </div>
                     </CardContent>
