@@ -14,13 +14,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
-import { Loader2, Upload } from "lucide-react";
+import { Loader2, Upload, CheckCircle, XCircle } from "lucide-react";
 
 const formSchema = z.object({
   firstName: z.string().min(2, "First name is required"),
   lastName: z.string().min(2, "Last name is required"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number is required"),
+  address: z.string().min(5, "Address is required"),
   message: z.string().optional(),
   resume: z.any().optional(), // Handling file separately usually, but basic validation here
 });
@@ -28,11 +29,40 @@ const formSchema = z.object({
 interface ContactFormProps {
   withResume?: boolean;
   onSuccess?: () => void;
+  specializationId?: string;
 }
 
-export default function ContactForm({ withResume = false, onSuccess }: ContactFormProps) {
+export default function ContactForm({ withResume = false, onSuccess, specializationId }: ContactFormProps) {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [uploadStatus, setUploadStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle');
+
+  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setUploadStatus('uploading');
+      // Simulate upload delay
+      setTimeout(() => {
+        // Simulate success/failure randomly for demo
+        if (file.size > 10 * 1024 * 1024) { // 10MB limit
+          setUploadStatus('error');
+          toast({
+            title: "Upload Failed",
+            description: "File size exceeds 10MB limit.",
+            variant: "destructive",
+          });
+        } else {
+          setUploadedFile(file);
+          setUploadStatus('success');
+          toast({
+            title: "Upload Successful",
+            description: `${file.name} has been uploaded successfully.`,
+          });
+        }
+      }, 1500);
+    }
+  };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,6 +71,7 @@ export default function ContactForm({ withResume = false, onSuccess }: ContactFo
       lastName: "",
       email: "",
       phone: "",
+      address: "",
       message: "",
     },
   });
@@ -54,11 +85,11 @@ export default function ContactForm({ withResume = false, onSuccess }: ContactFo
       
       // Store in local storage for "Admin" demo
       const existing = JSON.parse(localStorage.getItem('inquiries') || '[]');
-      existing.push({ 
-        ...values, 
-        id: Date.now(), 
+      existing.push({
+        ...values,
+        id: Date.now(),
         date: new Date().toISOString(),
-        resumeName: withResume ? "resume_sample.pdf" : null 
+        resumeName: withResume && uploadedFile ? uploadedFile.name : null
       });
       localStorage.setItem('inquiries', JSON.stringify(existing));
 
@@ -133,14 +164,58 @@ export default function ContactForm({ withResume = false, onSuccess }: ContactFo
           />
         </div>
 
+        <FormField
+          control={form.control}
+          name="address"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Address</FormLabel>
+              <FormControl>
+                <Input placeholder="123 Main St, City, State, ZIP" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         {withResume && (
           <FormItem>
             <FormLabel>Resume / CV</FormLabel>
-            <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-muted/50 transition-colors cursor-pointer">
-              <Upload className="h-8 w-8 text-muted-foreground mb-2" />
-              <p className="text-sm text-muted-foreground">Click to upload or drag and drop</p>
-              <p className="text-xs text-muted-foreground/70 mt-1">PDF, DOCX up to 10MB</p>
-              <Input type="file" className="hidden" />
+            <div className="border-2 border-dashed border-muted-foreground/25 rounded-lg p-6 flex flex-col items-center justify-center text-center hover:bg-muted/50 transition-colors cursor-pointer relative">
+              {uploadStatus === 'idle' && (
+                <>
+                  <Upload className="h-8 w-8 text-muted-foreground mb-2" />
+                  <p className="text-sm text-muted-foreground">Click to upload or drag and drop</p>
+                  <p className="text-xs text-muted-foreground/70 mt-1">PDF, DOCX up to 10MB</p>
+                </>
+              )}
+              {uploadStatus === 'uploading' && (
+                <>
+                  <Loader2 className="h-8 w-8 text-muted-foreground mb-2 animate-spin" />
+                  <p className="text-sm text-muted-foreground">Uploading...</p>
+                </>
+              )}
+              {uploadStatus === 'success' && (
+                <>
+                  <CheckCircle className="h-8 w-8 text-green-500 mb-2" />
+                  <p className="text-sm text-green-600">{uploadedFile?.name}</p>
+                  <p className="text-xs text-muted-foreground/70 mt-1">Upload successful</p>
+                </>
+              )}
+              {uploadStatus === 'error' && (
+                <>
+                  <XCircle className="h-8 w-8 text-red-500 mb-2" />
+                  <p className="text-sm text-red-600">Upload failed</p>
+                  <p className="text-xs text-muted-foreground/70 mt-1">Try again</p>
+                </>
+              )}
+              <Input
+                type="file"
+                accept=".pdf,.docx"
+                onChange={handleFileSelect}
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                disabled={uploadStatus === 'uploading'}
+              />
             </div>
           </FormItem>
         )}

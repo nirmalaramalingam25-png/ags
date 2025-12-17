@@ -6,6 +6,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Specializations from "@/pages/Specializations";
 import SpecializationDetail from "@/pages/SpecializationDetail";
+import ApplicationForm from "@/pages/ApplicationForm";
 import Testimonials from "@/pages/Testimonials";
 import JobSeekers from "@/pages/JobSeekers";
 import Contact from "@/pages/Contact";
@@ -19,6 +20,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/specializations" component={Specializations} />
       <Route path="/specializations/:id" component={SpecializationDetail} />
+      <Route path="/apply/:id" component={ApplicationForm} />
       <Route path="/testimonials" component={Testimonials} />
       <Route path="/job-seekers" component={JobSeekers} />
       <Route path="/contact" component={Contact} />

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/shared/ContactForm";
@@ -84,11 +85,11 @@ export default function SpecializationDetail() {
               </div>
             </div>
 
-            {/* Form */}
-            <div id="contact-form" className="bg-white p-8 rounded-2xl shadow-xl border border-muted sticky top-24">
-              <h2 className="text-2xl font-bold mb-2">Get In Touch</h2>
+            {/* Apply Form */}
+            <div id="apply-form" className="bg-white p-8 rounded-2xl shadow-xl border border-muted lg:sticky lg:top-24">
+              <h2 className="text-2xl font-bold mb-2">Apply for {spec.title}</h2>
               <p className="text-muted-foreground mb-6 text-sm">
-                Looking for talent or a new role in {spec.title}? Upload your resume or send us a message.
+                Fill out the form below to submit your application. We'll review your details and get back to you soon.
               </p>
               <ContactForm withResume={true} />
             </div>

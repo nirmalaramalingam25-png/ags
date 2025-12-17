@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Quote, Star } from "lucide-react";
 import { motion } from "framer-motion";
 
+
 export default function Testimonials() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -13,10 +14,10 @@ export default function Testimonials() {
       
       <section className="bg-primary text-primary-foreground pt-32 pb-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-heading font-bold mb-6">Success Stories</h1>
-          <p className="text-xl max-w-2xl mx-auto text-primary-foreground/80">
+        
+         {/* <p className="text-xl max-w-2xl mx-auto text-primary-foreground/80">
             Don't just take our word for it. Hear from the businesses we've helped and the professionals we've placed.
-          </p>
+          </p>*/}
         </div>
       </section>
 
@@ -24,8 +25,18 @@ export default function Testimonials() {
         <div className="container mx-auto px-4">
           <Tabs defaultValue="clients" className="w-full max-w-4xl mx-auto">
             <TabsList className="grid w-full grid-cols-2 mb-12 h-14">
-              <TabsTrigger value="clients" className="text-lg">Client Reviews</TabsTrigger>
-              <TabsTrigger value="candidates" className="text-lg">Candidate Reviews</TabsTrigger>
+              <TabsTrigger value="clients" className="text-lg  font-bold tracking-wider text-black data-[state=active]:text-yellow-500"style={{
+      fontFamily: "'DM Serif Display', serif",
+      fontWeight: 600,
+      letterSpacing: "0.05em",
+        fontSize: "30px",
+    }}>Client Reviews</TabsTrigger>
+              <TabsTrigger value="candidates" className="text-lg font-bold tracking-wider text-black data-[state=active]:text-yellow-500"style={{
+      fontFamily: "'DM Serif Display', serif",
+      fontWeight: 600,
+      letterSpacing: "0.05em",
+       fontSize: "30px",
+    }}>Candidate Reviews</TabsTrigger>
             </TabsList>
             
             <TabsContent value="clients" className="space-y-8">
@@ -36,7 +47,7 @@ export default function Testimonials() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <Card className="border-none shadow-lg">
+                  <Card className="border-none shadow-lg  hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                     <CardContent className="p-8 md:p-12 relative overflow-hidden">
                       <Quote className="absolute top-6 left-6 text-primary/10 w-24 h-24 -z-0" />
                       <div className="relative z-10">

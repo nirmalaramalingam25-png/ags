@@ -3,6 +3,7 @@ import imgIT from '@assets/generated_images/it_professionals_collaborating_in_mo
 import imgHealth from '@assets/generated_images/healthcare_professionals_in_hospital_setting.png';
 import imgFinance from '@assets/generated_images/finance_professionals_in_meeting.png';
 import imgEngineering from '@assets/generated_images/engineers_at_construction_site.png';
+import imgOthers from '@assets/generated_images/modern_corporate_office_interior.png';
 import imgCEO from '@assets/generated_images/professional_ceo_headshot.png';
 import imgDirector from '@assets/generated_images/professional_director_headshot.png';
 import imgHR from '@assets/generated_images/professional_hr_manager_headshot.png';
@@ -54,6 +55,14 @@ export const specializations = [
     image: imgEngineering,
     details: "We source talent for civil, mechanical, and electrical engineering projects as well as supply chain management.",
     roles: ["Civil Engineers", "Project Managers", "Logistics Coordinators", "Site Supervisors"]
+  },
+  {
+    id: "others",
+    title: "Others",
+    description: "Additional staffing solutions for various industries and roles.",
+    image: imgOthers,
+    details: "We provide staffing solutions for a wide range of industries and positions not covered in our specialized categories.",
+    roles: ["Administrative Assistants", "Sales Representatives", "Customer Service", "General Staff"]
   }
 ];
 

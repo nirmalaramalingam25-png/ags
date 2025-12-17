@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { specializations } from "@/lib/data";
@@ -6,25 +7,41 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 
+
 export default function Specializations() {
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const appliedId = urlParams.get('applied');
+    if (appliedId) {
+      const element = document.getElementById(`spec-${appliedId}`);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Remove the query param after scrolling
+        const newUrl = window.location.pathname;
+        window.history.replaceState({}, '', newUrl);
+      }
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
       <section className="bg-primary text-primary-foreground pt-32 pb-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-heading font-bold mb-6">Our Specializations</h1>
-          <p className="text-xl max-w-2xl mx-auto text-primary-foreground/80">
+          {/* <h1 className="text-5xl font-heading font-bold mb-6">Our Specializations</h1>*/}
+          {/*<p className="text-xl max-w-2xl mx-auto text-primary-foreground/80">
             We offer specialized staffing solutions tailored to your industry's unique needs.
-          </p>
+          </p>*/}
         </div>
       </section>
 
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {specializations.map((spec, index) => (
               <motion.div
+                id={`spec-${spec.id}`}
                 key={spec.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -58,8 +75,10 @@ export default function Specializations() {
                     </div>
                   </div>
 
-                  <Link href={`/specializations/${spec.id}`} className={buttonVariants({ className: "w-full" })}>
+                  <Link href={`/apply/${spec.id}`}>
+                    <Button className="w-full">
                       View Details <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
                   </Link>
                 </div>
               </motion.div>
@@ -67,6 +86,8 @@ export default function Specializations() {
           </div>
         </div>
       </section>
+
+
 
       <Footer />
     </div>
