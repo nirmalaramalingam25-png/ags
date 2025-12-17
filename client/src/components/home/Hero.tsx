@@ -123,7 +123,7 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 1 }}
         className="absolute bottom-40 left-1/2 -translate-x-1/2 z-20"
       >
-        <Link href="/job-seekers" className={buttonVariants({ size: "lg", variant: "outline", className: "bg-yellow-400 text-black border-black hover:bg-yellow-500 hover:text-black text-lg px-8 py-6 h-auto font-bold rounded-full backdrop-blur-sm whitespace-nowrap" })}>
+        <Link href="/specializations" className={buttonVariants({ size: "lg", variant: "outline", className: "bg-yellow-400 text-black border-black hover:bg-yellow-500 hover:text-black text-lg px-8 py-6 h-auto font-bold rounded-full backdrop-blur-sm whitespace-nowrap" })}>
             Find Jobs <ArrowRight className="ml-2 w-5 h-5" />
         </Link>
       </motion.div>

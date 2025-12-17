@@ -27,7 +27,7 @@ export default function ApplicationForm() {
   }
 
   const handleFormSuccess = () => {
-    // Redirect back to specializations page with applied query param
+    // Redirect back to the specializations page with the applied card highlighted
     setLocation(`/specializations?applied=${spec.id}`);
   };
 
@@ -47,7 +47,7 @@ export default function ApplicationForm() {
 
         <div className="relative container mx-auto px-4 h-full flex flex-col justify-end pb-20">
           <Link href="/specializations" className="text-white/70 hover:text-white flex items-center gap-2 mb-6 transition-colors w-fit">
-              <ArrowLeft size={20} /> Back to All Specializations
+             {/* <ArrowLeft size={20} /> Back to All Specializations*/}
           </Link>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
