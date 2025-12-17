@@ -13,14 +13,12 @@ const basePlugins = [
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig(async () => {
-  const plugins = basePlugins;
+export default defineConfig(() => {
+  const plugins = [...basePlugins];
 
   if (process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined) {
-    // Dynamically import the plugins if needed
-    const cartographer = await import("@replit/vite-plugin-cartographer").then((m) => m.cartographer());
-    const devBanner = await import("@replit/vite-plugin-dev-banner").then((m) => m.devBanner());
-    plugins.push(cartographer, devBanner);
+    // Note: Dynamic imports removed for TypeScript compatibility
+    // These plugins would need to be imported synchronously or handled differently
   }
 
   return {
