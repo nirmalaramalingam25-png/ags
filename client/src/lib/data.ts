@@ -6,6 +6,7 @@ import imgEngineering from '@assets/generated_images/engineers_at_construction_s
 import imgCEO from '@assets/generated_images/professional_ceo_headshot.png';
 import imgDirector from '@assets/generated_images/professional_director_headshot.png';
 import imgHR from '@assets/generated_images/professional_hr_manager_headshot.png';
+import { Quote } from "lucide-react";
 
 export const companyInfo = {
   name: "AGS Staffing Agency",
@@ -81,27 +82,39 @@ export const testimonials = {
   clients: [
     {
       id: 1,
-      name: "TechSolutions Inc.",
-      content: "AGS found us the perfect Lead Developer within 48 hours. Their understanding of our technical requirements was impressive.",
+      name: "TechCorp Solutions",
+      content: "AGS Staffing transformed our hiring process. Their attention to detail and understanding of our needs helped us find the perfect candidates quickly.",
       role: "CTO"
     },
     {
       id: 2,
-      name: "City General Hospital",
-      content: "Reliable, professional, and fast. AGS is our go-to partner for nursing staff requirements.",
+      name: "Global Enterprises",
+      content: "The team at AGS Staffing is professional and efficient. They provided us with a pool of qualified candidates that made our selection process much easier.",
       role: "HR Director"
+    },
+    {
+      id: 3,
+      name: "Innovate Inc.",
+      content: "AGS Staffing transformed our hiring process. Their attention to detail and understanding of our needs helped us find the perfect candidates quickly.",
+      role: "CEO"
+    },
+    {
+      id: 4,
+      name: "Business Dynamics",
+      content: "Their recruitment process was smooth and super organized. We filled positions we struggled with for months. Communication was clear throughout the entire process. Highly recommend them to any US business.",
+      role: "Operations Manager"
     }
   ],
   candidates: [
     {
       id: 1,
-      name: "David W.",
+      name: "Alex Johnson",
       content: "They didn't just find me a job; they found me a career path that matched my ambitions perfectly.",
       role: "Software Engineer"
     },
     {
       id: 2,
-      name: "Elena R.",
+      name: "Elena Rodriguez",
       content: "The support I received during the interview process was outstanding. Highly recommended!",
       role: "Financial Analyst"
     }
