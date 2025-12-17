@@ -80,7 +80,8 @@ export default function JobSeekers() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 bg-primary/5">
+    {/* 
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-3xl font-heading font-bold text-center text-primary mb-12">Frequently Asked Questions</h2>
           
@@ -95,7 +96,89 @@ export default function JobSeekers() {
             ))}
           </Accordion>
         </div>
-      </section>
+      </section>*/}
+      {/*  <section className="py-20 bg-white ">
+  <div className="container mx-auto px-4 max-w-3xl">
+    <h2 className="text-3xl font-heading font-bold text-center text-primary mb-12">
+      Frequently Asked Questions
+    </h2>
+
+    <Accordion
+      type="single"
+      collapsible
+      className="w-full bg-white rounded-2xl shadow-lg divide-y"
+    >
+      {faqs.map((faq, i) => (
+        <AccordionItem key={i} value={`item-${i}`} className="px-6">
+          <AccordionTrigger
+            className="
+              text-left font-medium text-lg py-5
+              hover:text-primary transition-colors
+            "
+          >
+            {faq.q}
+          </AccordionTrigger>
+
+          <AccordionContent className="text-muted-foreground text-base pb-5 leading-relaxed">
+            {faq.a}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  </div>
+</section>*/}
+{/* <section className="py-20 bg-white">
+  <div className="container mx-auto px-4 max-w-3xl">
+    <h2 className="text-3xl font-heading font-bold text-center text-primary mb-12">
+      Frequently Asked Questions
+    </h2>
+
+    <Accordion type="single" collapsible className="w-full bg-white p-6 rounded-xl shadow-sm">
+      {faqs.map((faq, i) => (
+        <AccordionItem key={i} value={`item-${i}`}>
+          <AccordionTrigger className="text-left font-medium text-lg text-black">
+            {faq.q}
+          </AccordionTrigger>
+
+          <AccordionContent className="text-yellow-600 text-base">
+            {faq.a}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  </div>
+</section>*/}
+<section
+  className="py-20 bg-cover bg-center bg-no-repeat"
+  style={{ backgroundImage: "url(https://plus.unsplash.com/premium_photo-1663032623832-6972fc36dc86?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGZhcXxlbnwwfHwwfHx8MA%3D%3D)" }}
+>
+  <div className="container mx-auto px-4 max-w-3xl">
+    <h2 className="text-3xl font-heading font-bold text-center text-white mb-12">
+      Frequently Asked Questions
+    </h2>
+
+    <Accordion
+      type="single"
+      collapsible
+      className="w-full bg-white/90 backdrop-blur p-6 rounded-xl shadow-lg"
+    >
+      {faqs.map((faq, i) => (
+        <AccordionItem key={i} value={`item-${i}`}>
+          <AccordionTrigger className="text-left font-medium text-lg text-black">
+            {faq.q}
+          </AccordionTrigger>
+
+          <AccordionContent className="text-yellow-600 text-base">
+            {faq.a}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
+    </Accordion>
+  </div>
+</section>
+
+
+
 
       <Footer />
     </div>

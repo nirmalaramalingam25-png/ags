@@ -1,0 +1,3 @@
+- [x] Change FAQ section background from bg-primary/5 to bg-white in client/src/pages/JobSeekers.tsx
+- [ ] Add Bootstrap CSS link to client/index.html (reverted)
+- [ ] Update FAQ section in client/src/pages/JobSeekers.tsx to use Bootstrap accordion (reverted)
