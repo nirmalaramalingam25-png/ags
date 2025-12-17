@@ -62,13 +62,13 @@ export default function Testimonials() {
             
             <TabsContent value="candidates" className="space-y-8">
               {testimonials.candidates.map((review, i) => (
-                <motion.div 
+                <motion.div
                   key={review.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <Card className="border-none shadow-lg">
+                  <Card className="border-none shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                     <CardContent className="p-8 md:p-12 relative overflow-hidden">
                       <Quote className="absolute top-6 left-6 text-secondary/10 w-24 h-24 -z-0" />
                       <div className="relative z-10">

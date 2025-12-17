@@ -104,13 +104,28 @@ export const testimonials = {
   candidates: [
     {
       id: 1,
-      content: "They didn't just find me a job; they found me a career path that matched my ambitions perfectly.",
+      content: "Expectional services start to finish!they understant my goals and matched me with a role that fit perfectly.The communication was fast and clear throughout.Best staffing experience I’ve had in the US so far",
       rating: 5
     },
     {
       id: 2,
-      content: "The support I received during the interview process was outstanding. Highly recommended!",
-      rating: 5
+      content: " Professional, friendly, and extremely efficient.They connected me with a role that aligned perfectly with my skills.The follow-ups and care they show even after joining are unmatched. A five-star experience! ",
+      rating: 3
+    },
+     {
+      id: 3,
+      content: "The recruiter was incredibly patient.They helped me understand company culture before joining.Placement was quick and smooth. Highly recommend AGS for job seekers looking for personalized support.",
+      rating: 1
+    },
+     {
+      id: 4,
+      content: " Great team and excellent service.They reviewed my resume and guided me professionally. Placed me in a role with amazing benefits and growth opportunities. Highly recommend! ",
+      rating: 2
+    },
+     {
+      id: 5,
+      content: " They truly understand the US employment market. Helped me find a role with great career growth. Very friendly and easy to talk to.One of the best staffing agencies around.",
+      rating: 4
     }
   ]
 };
