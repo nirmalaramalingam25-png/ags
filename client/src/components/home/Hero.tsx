@@ -1,13 +1,20 @@
-import heroVideo from '@assets/generated_videos/cinematic_timelapse_of_modern_business_people_walking_in_a_busy_office_lobby.mp4';
+//import heroVideo from '@assets/generated_videos/cinematic_timelapse_of_modern_business_people_walking_in_a_busy_office_lobby.mp4';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
+//import heroVideo from '@assets/generated_videos/v1.mp4';
+import video1 from '@assets/generated_videos/cinematic_timelapse_of_modern_business_people_walking_in_a_busy_office_lobby.mp4';
+import video2 from '@assets/generated_videos/v1.mp4';
+import video3 from '@assets/generated_videos/v2.mp4';
+import video4 from '@assets/generated_videos/v3.mp4';
+
 
 const lines = [
   {
     text: "YOUR NEXT OPPORTUNITY STARTS HERE.",
+     video: video1,
     className: "text-3xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg",
     style: {
       fontFamily: "'Montserrat', sans-serif",
@@ -21,6 +28,7 @@ const lines = [
   },
   {
     text: "FAST HIRING. REAL OPPORTUNITY.",
+    video: video2,
     className: "text-3xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg",
     style: {
       fontFamily: "'Roboto', sans-serif",
@@ -34,6 +42,7 @@ const lines = [
   },
   {
     text: "APPLY ONCE. GET MULTIPLE OPPORTUNITIES",
+     video: video3,
     className: "text-3xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg",
     style: {
       fontFamily: "'Poppins', sans-serif",
@@ -47,6 +56,7 @@ const lines = [
   },
   {
     text: "HELPING JOB SEEKERS FIND BETTER OPPORTUNITIES, FASTER.",
+     video: video4,
     className: "text-3xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-lg",
     style: {
       fontFamily: "'Dancing Script', cursive",
@@ -73,7 +83,7 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      {/* Video Background */}
+      {/* Video Background 
       <div className="absolute inset-0 w-full h-full bg-black/40 z-10" />
       <video
         autoPlay
@@ -83,7 +93,30 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={heroVideo} type="video/mp4" />
-      </video>
+      </video>*/}
+      {/* Video Background */}
+<div className="absolute inset-0 w-full h-full overflow-hidden">
+  <AnimatePresence mode="wait">
+    <motion.video
+      key={currentLine}
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="absolute inset-0 w-full h-full object-cover"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
+      <source src={lines[currentLine].video} type="video/mp4" />
+    </motion.video>
+  </AnimatePresence>
+</div>
+
+{/* Dark overlay */}
+<div className="absolute inset-0 bg-black/40 z-10" />
+
 
       {/* Content */}
       <div className="relative z-20 h-full container mx-auto px-4 flex flex-col justify-center items-center text-white">
